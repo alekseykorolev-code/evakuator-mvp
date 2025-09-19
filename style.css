@@ -1,0 +1,114 @@
+:root {
+  --blue: #1E3A8A;
+  --orange: #F97316;
+  --text: #111827;
+  --muted: #6B7280;
+  --border: #E5E7EB;
+  --bg: #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  color: var(--text);
+  background: var(--bg);
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.header h1 {
+  font-size: 22px;
+  margin: 0 0 8px 0;
+  color: var(--blue);
+  line-height: 1.25;
+}
+.header p { color: var(--muted); margin: 0 0 12px 0; }
+
+.order-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+label { font-weight: 600; display: block; margin-bottom: 6px; }
+
+input[type="text"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.checkboxes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkbox input { width: 20px; height: 20px; }
+
+.btn { padding: 10px 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-accent { background: var(--orange); color: #fff; }
+.btn[disabled] { opacity: .6; cursor: not-allowed; }
+
+.muted { color: var(--muted); }
+.error { color: #B91C1C; margin-top: 8px; }
+
+.table-wrapper { width: 100%; overflow: auto; }
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { border: 1px solid var(--border); padding: 8px; text-align: left; }
+.table thead th { background: #F3F4F6; font-weight: 700; }
+
+.footer { margin-top: 24px; color: var(--muted); font-size: 14px; text-align: center; }
+
+/* Modal */
+.modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; z-index: 1000; }
+.modal[aria-hidden="false"] { display: flex; }
+.modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
+.modal__content {
+  position: relative;
+  width: min(720px, 92vw);
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  padding: 16px;
+  max-height: 90vh;
+  overflow: auto;
+}
+.modal__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.modal__close { background: transparent; border: none; font-size: 24px; line-height: 1; cursor: pointer; }
+
+.form-row { display: flex; flex-direction: column; }
+
+/* Admin */
+.admin__controls { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+
+/* Map base tweaks */
+#map { background: #f9fafb; }
+
+/* Responsive */
+@media (min-width: 768px) {
+  .header h1 { font-size: 28px; }
+  .order-form { padding: 18px; gap: 14px; }
+  .checkboxes { grid-template-columns: repeat(3, 1fr); }
+}
+

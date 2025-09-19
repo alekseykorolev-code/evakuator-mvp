@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Админка — Эвакуатор СПб</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Админ-панель</h1>
+        <p>Управление заявками эвакуатора</p>
+      </header>
+
+      <main id="admin-app" class="admin">
+        <div class="admin__controls">
+          <button id="export-btn" class="btn btn-primary" type="button">Экспорт в JSON</button>
+          <button id="import-btn" class="btn btn-accent" type="button">Импорт из JSON</button>
+          <input id="import-file" type="file" accept="application/json" style="display:none">
+        </div>
+
+        <div class="table-wrapper">
+          <table id="admin-orders-table" class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Адрес забора</th>
+                <th>Адрес доставки</th>
+                <th>Тип ТС</th>
+                <th>Марка</th>
+                <th>Комментарий</th>
+                <th>Расстояние (км)</th>
+                <th>Статус</th>
+                <th>Дата</th>
+                <th>Действие</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </main>
+    </div>
+
+    <div id="login-modal" class="modal" aria-hidden="false">
+      <div class="modal__backdrop"></div>
+      <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="login-modal-title">
+        <div class="modal__header">
+          <h2 id="login-modal-title">Вход в админку</h2>
+        </div>
+        <div class="modal__body">
+          <div class="form-row">
+            <label for="admin-login">Логин</label>
+            <input id="admin-login" type="text" placeholder="admin" autocomplete="username">
+          </div>
+          <div class="form-row">
+            <label for="admin-password">Пароль</label>
+            <input id="admin-password" type="password" placeholder="123" autocomplete="current-password">
+          </div>
+          <div class="form-row">
+            <button id="login-submit" class="btn btn-primary" type="button">Войти</button>
+          </div>
+          <div id="login-error" class="error" style="display:none">Неверные данные. Попробуйте admin / 123</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+  </html>
+
